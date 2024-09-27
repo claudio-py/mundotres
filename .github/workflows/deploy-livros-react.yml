@@ -13,6 +13,9 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v3
 
+      - name: Install pnpm
+        run: npm install -g pnpm
+
       - name: Install Dependencies for Livros React
         run: |
           cd livros-react
@@ -38,6 +41,9 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v3
+
+      - name: Install pnpm
+        run: npm install -g pnpm
 
       - name: Install Dependencies for Livros Next
         run: |
