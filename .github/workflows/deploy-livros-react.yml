@@ -6,24 +6,54 @@ on:
       - main
 
 jobs:
-  build:
+  build-livros-react:
     runs-on: ubuntu-latest
-    name: Build and Push
+    name: Build and Push Livros React
     steps:
-      - name: git-checkout
+      - name: Checkout Repository
         uses: actions/checkout@v3
 
-      - name: Install all dependencies
-        run: npm install
+      - name: Install Dependencies for Livros React
+        run: |
+          cd livros-react
+          pnpm install
 
-      - name: Build
-        run: npm run build # The build command of your project
+      - name: Build Livros React
+        run: |
+          cd livros-react
+          pnpm run build
 
-      - name: Push
+      - name: Push Livros React to gh-pages
         uses: s0/git-publish-subdir-action@develop
         env:
           REPO: self
-          BRANCH: gh-pages # The branch name where you want to push the assets
-          FOLDER: dist # The directory where your assets are generated
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # GitHub will automatically add this - you don't need to bother getting a token
-          MESSAGE: "Build: ({sha}) {msg}" # The commit message for the push
+          BRANCH: gh-pages
+          FOLDER: livros-react/dist
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          MESSAGE: "Build: ({sha}) {msg}"
+
+  build-livros-next:
+    runs-on: ubuntu-latest
+    name: Build and Push Livros Next
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Install Dependencies for Livros Next
+        run: |
+          cd livros-next
+          pnpm install
+
+      - name: Build Livros Next
+        run: |
+          cd livros-next
+          pnpm run build
+
+      - name: Push Livros Next to gh-pages
+        uses: s0/git-publish-subdir-action@develop
+        env:
+          REPO: self
+          BRANCH: gh-pages
+          FOLDER: livros-next/.next
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          MESSAGE: "Build: ({sha}) {msg}"
