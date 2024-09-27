@@ -1,4 +1,4 @@
-name: Deploy Livros React
+name: Generate a build and push to another branch
 
 on:
   push:
@@ -6,31 +6,24 @@ on:
       - main
 
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
-
+    name: Build and Push
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v2
+      - name: git-checkout
+        uses: actions/checkout@v3
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: '16'
+      - name: Install all dependencies
+        run: npm install
 
-      - name: Install Dependencies
-        run: |
-          cd livros-react
-          npm install
+      - name: Build
+        run: npm run build # The build command of your project
 
-      - name: Build Project
-        run: |
-          cd livros-react
-          npm run build
-
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./livros-react/dist
-          destination_dir: livros-react
+      - name: Push
+        uses: s0/git-publish-subdir-action@develop
+        env:
+          REPO: self
+          BRANCH: gh-pages # The branch name where you want to push the assets
+          FOLDER: dist # The directory where your assets are generated
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # GitHub will automatically add this - you don't need to bother getting a token
+          MESSAGE: "Build: ({sha}) {msg}" # The commit message for the push
