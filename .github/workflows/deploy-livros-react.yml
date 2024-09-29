@@ -35,31 +35,31 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           MESSAGE: "Build: ({sha}) {msg}"
 
-  build-livros-next:
-    runs-on: ubuntu-latest
-    name: Build and Push Livros Next
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v3
+  # build-livros-next:
+  #   runs-on: ubuntu-latest
+  #   name: Build and Push Livros Next
+  #   steps:
+  #     - name: Checkout Repository
+  #       uses: actions/checkout@v3
 
-      - name: Install pnpm
-        run: npm install -g pnpm
+  #     - name: Install pnpm
+  #       run: npm install -g pnpm
 
-      - name: Install Dependencies for Livros Next
-        run: |
-          cd livros-next
-          pnpm install
+  #     - name: Install Dependencies for Livros Next
+  #       run: |
+  #         cd livros-next
+  #         pnpm install
 
-      - name: Build Livros Next
-        run: |
-          cd livros-next
-          pnpm run build
+  #     - name: Build Livros Next
+  #       run: |
+  #         cd livros-next
+  #         pnpm run build
 
-      - name: Push Livros Next to gh-pages
-        uses: s0/git-publish-subdir-action@develop
-        env:
-          REPO: self
-          BRANCH: gh-pages
-          FOLDER: livros-next/.next
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          MESSAGE: "Build: ({sha}) {msg}"
+  #     - name: Push Livros Next to gh-pages
+  #       uses: s0/git-publish-subdir-action@develop
+  #       env:
+  #         REPO: self
+  #         BRANCH: gh-pages
+  #         FOLDER: livros-next/.next
+  #         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  #         MESSAGE: "Build: ({sha}) {msg}"
