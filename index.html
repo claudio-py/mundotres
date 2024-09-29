@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Missão prática</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+      
+      :root {
+        font-size: 62.5%;
+      }
+      
+      body {
+        font-size: 1.6rem;
+        height: 100vh;
+      }
+      main{
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+        gap: 1rem;
+        font-family: 'Arial', sans-serif;
+      }
+      button {
+        padding: 1rem 2rem;
+        background-color: #000;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        width:130px;
+      }
+      button:hover {
+        background-color: #333;
+      }
+      img{
+        width: 1.6rem;
+        height: 1.6rem;
+        margin-right: 0.5rem;
+      }
+    </style>
+  </head>
+  <body >
+    <main id='main'>
+      <h1>Missão prática Mundo 2</h1>
+      <a href="https://livros-react-eight.vercel.app/"><button>1º Procedimento</button></a>
+      <a href="https://livros-next.vercel.app/"><button>2º Procedimento</button></a>
+      <a href="https://github.com/claudio-py/mundotres"><button><img src="./github-mark-white.svg" alt=""> Github</button></a>
+    </main>
+
+
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/vanta/dist/vanta.net.min.js"></script>
+
+<script>
+  VANTA.NET({
+    el:'#main'
+   })
+</script>
+  </body>
+</html>
