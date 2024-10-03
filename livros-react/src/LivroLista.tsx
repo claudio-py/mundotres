@@ -64,10 +64,10 @@ const LivroLista: React.FC = () => {
     };
 
     return (
-        <main>
-            <h1>Lista de Livros</h1>
-            <table>
-                <thead>
+        <main className='p-3'>
+            <h1>Catálogo de Livros</h1>
+            <table className='table table-striped table-bordered '>
+                <thead className='bg-body-secondary'>
                     <tr>
             <th>Título</th>
                         <th>Resumo</th>
