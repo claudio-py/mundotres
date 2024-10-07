@@ -1,0 +1,12 @@
+GET http://localhost:3000/api/livros
+###
+DELETE http://localhost:3000/api/livros/3
+###
+POST http://localhost:3000/api/livros
+Content-Type: application/json
+
+{
+  "codEditora":1,
+  "titulo":"MINHA PICA CARALHO", "resumo":"Resumo 1",
+  "autores":["Autor 1","Autor 2"]
+}

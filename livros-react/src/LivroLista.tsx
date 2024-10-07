@@ -6,13 +6,6 @@ import Livro from './modelo/Livro';
 const controleLivro = new ControleLivros();
 const controleEditora = new ControleEditoras();
 
-// interface Livro {
-//     codigo: number;
-//     titulo: string;
-//     ano: number;
-//     codEditora: number;
-//     autores: string[];
-// }
 
 interface LinhaLivroProps {
     livro: Livro;
