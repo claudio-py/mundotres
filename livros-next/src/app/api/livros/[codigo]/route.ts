@@ -1,7 +1,9 @@
+// ./src/app/api/livros/[codigo]/route.ts
+// Error: Unexpected any. Specify a different type.  @typescript-eslint/no-explicit-any
 import { controleLivro } from '../route';
 import { NextResponse } from 'next/server';
 
-export async function DELETE(request: Request, context: any) {
+export async function DELETE(request: Request, context: { params: { codigo: string } }) {
   const { params } = context;
   const codigo = Number(params.codigo);
   const deleteLivro = controleLivro.excluir(codigo);
