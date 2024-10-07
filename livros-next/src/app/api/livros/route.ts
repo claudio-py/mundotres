@@ -22,8 +22,11 @@ export async function POST(req: Request) {
     controleLivro.incluir(novoLivro);
 
     return NextResponse.json({ mensagem: 'Livro incluído com sucesso' });
-  } catch (erro: any) {
-    return NextResponse.json({ mensagem: erro.message }, { status: 500 });
+  } catch (erro: unknown) {
+    if (erro instanceof Error) {
+      return NextResponse.json({ mensagem: erro.message }, { status: 500 });
+    }
+    return NextResponse.json({ mensagem: 'An unknown error occurred' }, { status: 500 });
   }
 }
 

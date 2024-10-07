@@ -1,9 +1,11 @@
-//a) No arquivo Editora.ts, criar a classe Editora, com os campos codEditora, numérico, e nome, do tipo texto
-  interface Editora {
+  interface IEditora {
      codEditora: number; 
       nome: string;
     }
-    class Editora {
+    class Editora implements IEditora {
+        codEditora: number;
+        nome: string;
+        
         constructor(codEditora: number, nome: string) {
             this.codEditora = codEditora;
             this.nome = nome;

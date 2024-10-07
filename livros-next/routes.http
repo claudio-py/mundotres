@@ -7,6 +7,7 @@ Content-Type: application/json
 
 {
   "codEditora":1,
-  "titulo":"MINHA PICA CARALHO", "resumo":"Resumo 1",
+  "titulo":"teste", 
+  "resumo":"Resumo 1",
   "autores":["Autor 1","Autor 2"]
 }

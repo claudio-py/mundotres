@@ -1,11 +1,17 @@
-interface Livro {
+interface ILivro {
     codigo: number;
     codEditora: number;
     titulo: string;
     resumo: string;
     autores: string[];
 }
-class Livro {
+class Livro implements ILivro {
+    codigo: number;
+    codEditora: number;
+    titulo: string;
+    resumo: string;
+    autores: string[];
+
     constructor(codigo: number, codEditora: number, titulo: string, resumo: string, autores: string[]) {
         this.codigo = codigo;
         this.codEditora = codEditora;

@@ -18,7 +18,7 @@ export default function LivroDados() {
     const [codEditora, setCodEditora] = useState(opcoes[0].value);
 
 
-    function tratarCombo(event: any) {
+    function tratarCombo(event: React.ChangeEvent<HTMLSelectElement>) {
         setCodEditora(Number(event.target.value));
     }
     async function incluirLivro(livro: Livro) {
@@ -32,7 +32,7 @@ export default function LivroDados() {
         return resposta.ok;
     }
   // const navigate = router.push;
-    function incluir(event: any) {
+    function incluir(event: React.FormEvent<HTMLFormElement>) {
         event.preventDefault();
         const livro = new Livro(0, codEditora, titulo, resumo, autores.split('\n'));
         incluirLivro(livro);
