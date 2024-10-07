@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { controleEditora } from '../route';
-import { NextRequest } from 'next/server';
+// import { NextRequest } from 'next/server';
 
 interface Context {
   params: {
