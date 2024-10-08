@@ -3,11 +3,11 @@ import { useState } from 'react';
 import Livro from '../modelo/Livro';
 import Editora from '../modelo/Editora';
 import ControleEditora from '../controle/ControleEditora';
-// import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 const baseUrl = "http://localhost:3000/api/livros";
 
 export default function LivroDados() {
-  // const router = useRouter(); 
+  const router = useRouter(); 
     const controleEditora = new ControleEditora();
     const opcoes = controleEditora.getEditoras().map((editora: Editora) => {
         return { value: editora.codEditora, text: editora.nome };
@@ -32,13 +32,23 @@ export default function LivroDados() {
         return resposta.ok;
     }
   // const navigate = router.push;
-    function incluir(event: React.FormEvent<HTMLFormElement>) {
+    // function incluir(event: React.FormEvent<HTMLFormElement>) {
+    //     event.preventDefault();
+    //     const livro = new Livro(0, codEditora, titulo, resumo, autores.split('\n'));
+    //     incluirLivro(livro);
+        // navigate('/livrolista');
+    // }
+   
+    async function incluir(event: React.FormEvent<HTMLFormElement>) {
         event.preventDefault();
         const livro = new Livro(0, codEditora, titulo, resumo, autores.split('\n'));
-        incluirLivro(livro);
-        // navigate('/livrolista');
+        const sucesso = await incluirLivro(livro);
+        if (sucesso) {
+            router.push('/livrolista');
+        } else {
+            console.error('Failed to include the book');
+        }
     }
-   
 
     return (
         <main className='p-3'>

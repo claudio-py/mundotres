@@ -4,4 +4,5 @@ import { NextResponse} from 'next/server';
 export async function GET(){
   return NextResponse.json(controleEditora.getEditoras())
 }
-export { controleEditora };
+// export { controleEditora };
+// export default controleEditora;

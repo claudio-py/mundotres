@@ -31,4 +31,4 @@ export async function POST(req: Request) {
 }
 
 //################################
-export { controleLivro};
+// export default controleLivro;
